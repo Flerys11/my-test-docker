@@ -1,1 +1,15 @@
+# Utiliser l'image officielle de OpenJDK 21 comme base
+FROM openjdk:21-jre-slim
+
+# Créer un répertoire pour l'application
+WORKDIR /app
+
+# Copier le fichier JAR de votre application dans le conteneur
+COPY target/backend.jar app.jar
+
+# Exposer le port sur lequel votre application Spring Boot va tourner
+EXPOSE 8080
+
+# Commande pour démarrer l'application
+ENTRYPOINT ["java","-jar","/app.jar"]
 
